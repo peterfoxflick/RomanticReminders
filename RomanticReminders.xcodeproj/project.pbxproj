@@ -14,6 +14,9 @@
 		917AA2C5241126FB00ACEA11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 917AA2C4241126FB00ACEA11 /* Assets.xcassets */; };
 		917AA2C8241126FB00ACEA11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 917AA2C7241126FB00ACEA11 /* Preview Assets.xcassets */; };
 		917AA2CB241126FB00ACEA11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 917AA2C9241126FB00ACEA11 /* LaunchScreen.storyboard */; };
+		917AA2D6241127BA00ACEA11 /* ReminderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917AA2D5241127BA00ACEA11 /* ReminderViewModel.swift */; };
+		917AA2D82412BDFF00ACEA11 /* RemindersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917AA2D72412BDFF00ACEA11 /* RemindersListViewModel.swift */; };
+		917AA2DA2412C01F00ACEA11 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917AA2D92412C01F00ACEA11 /* enums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		917AA2C7241126FB00ACEA11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		917AA2CA241126FB00ACEA11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		917AA2CC241126FB00ACEA11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		917AA2D5241127BA00ACEA11 /* ReminderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewModel.swift; sourceTree = "<group>"; };
+		917AA2D72412BDFF00ACEA11 /* RemindersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListViewModel.swift; sourceTree = "<group>"; };
+		917AA2D92412C01F00ACEA11 /* enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +64,12 @@
 		917AA2BA241126F900ACEA11 /* RomanticReminders */ = {
 			isa = PBXGroup;
 			children = (
+				917AA2D92412C01F00ACEA11 /* enums.swift */,
+				917AA2D32411273E00ACEA11 /* View */,
+				917AA2D42411274400ACEA11 /* View-Model */,
+				917AA2D22411272300ACEA11 /* Model */,
 				917AA2BB241126F900ACEA11 /* AppDelegate.swift */,
 				917AA2BD241126F900ACEA11 /* SceneDelegate.swift */,
-				917AA2C2241126F900ACEA11 /* ContentView.swift */,
 				917AA2C4241126FB00ACEA11 /* Assets.xcassets */,
 				917AA2C9241126FB00ACEA11 /* LaunchScreen.storyboard */,
 				917AA2CC241126FB00ACEA11 /* Info.plist */,
@@ -76,6 +85,30 @@
 				917AA2C7241126FB00ACEA11 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		917AA2D22411272300ACEA11 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		917AA2D32411273E00ACEA11 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				917AA2C2241126F900ACEA11 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		917AA2D42411274400ACEA11 /* View-Model */ = {
+			isa = PBXGroup;
+			children = (
+				917AA2D5241127BA00ACEA11 /* ReminderViewModel.swift */,
+				917AA2D72412BDFF00ACEA11 /* RemindersListViewModel.swift */,
+			);
+			path = "View-Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,7 +182,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				917AA2DA2412C01F00ACEA11 /* enums.swift in Sources */,
+				917AA2D6241127BA00ACEA11 /* ReminderViewModel.swift in Sources */,
 				917AA2C1241126F900ACEA11 /* RomanticReminders.xcdatamodeld in Sources */,
+				917AA2D82412BDFF00ACEA11 /* RemindersListViewModel.swift in Sources */,
 				917AA2BC241126F900ACEA11 /* AppDelegate.swift in Sources */,
 				917AA2C3241126F900ACEA11 /* ContentView.swift in Sources */,
 				917AA2BE241126F900ACEA11 /* SceneDelegate.swift in Sources */,
