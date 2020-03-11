@@ -17,4 +17,14 @@ class RemindersListViewModel: ObservableObject, Identifiable {
         reminders.append(ReminderViewModel(title:"Hold hands", type: .Touch))
         reminders.append(ReminderViewModel(title:"Talk about your favorite date", type: .Time))
     }
+    
+    func addAll(){
+        let offset = 0.0
+        var day = 0.0
+        
+        self.reminders.forEach{ r in
+            r.addR(offset: offset + day)
+            day += 86400
+        }
+    }
 }

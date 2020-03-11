@@ -13,39 +13,40 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Text("Romantic Reminders").font(.largeTitle)
+            Text("Romantic Reminders").font(.largeTitle).padding(.top)
 
             List{
                 ForEach(self.rlist.reminders){ r in
                     HStack{
-                        Text(r.title)
-                        
-                        
                         self.loveTypeImg(type: r.type)
-                        
-                        
+                        Text(r.title)
                     }
                 }
             }
             
             Button(action: {
                 // What to perform
-                //self.r.addR()
+                self.rlist.addAll()
+                
             }) {
                 // How the button looks like
                 Text("Add reminder")
+                    .foregroundColor(Color.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(50)
             }
-            
+              
         }
     }
     
     func loveTypeImg(type: LoveLang) -> Image {
        switch type {
            case .Touch: return Image(systemName: "hand.raised")
-           case .Service: return Image(systemName: "checkmark.circle")
-           case .Words: return Image(systemName: "checkmark.circle")
-           case .Time: return Image(systemName: "checkmark.circle")
-           case .Gift: return Image(systemName: "checkmark.circle")
+           case .Service: return Image(systemName: "hammer")
+           case .Words: return Image(systemName: "message")
+           case .Time: return Image(systemName: "clock")
+           case .Gift: return Image(systemName: "gift")
            }
         }
 
