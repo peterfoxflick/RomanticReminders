@@ -13,10 +13,12 @@ enum LoveLang: Decodable {
         //https://stackoverflow.com/questions/44580719/how-do-i-make-an-enum-decodable-in-swift-4/44582674
         let label = try decoder.singleValueContainer().decode(String.self)
         switch label {
-        case "TOUCH": self = .Touch
-        case "SERVICE": self = .Service
-           default: self = .Gift
-           // default: self = .other(label)
+        case "Touch": self = .Touch
+        case "Service": self = .Service
+       case "Words": self = .Words
+       case "Time": self = .Time
+       case "Gift": self = .Gift
+       default: self = .Service
         }
     }
     

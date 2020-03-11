@@ -12,10 +12,31 @@ class RemindersListViewModel: ObservableObject, Identifiable {
     @Published var reminders = [ReminderViewModel]()
 
     init(){
-        reminders.append(ReminderViewModel(title:"Get Flowers", type: .Gift))
-        reminders.append(ReminderViewModel(title:"Write a note", type: .Words))
-        reminders.append(ReminderViewModel(title:"Hold hands", type: .Touch))
-        reminders.append(ReminderViewModel(title:"Talk about your favorite date", type: .Time))
+        load()
+//        reminders.append(ReminderViewModel(title:"Get Flowers", type: .Gift))
+//        reminders.append(ReminderViewModel(title:"Write a note", type: .Words))
+//        reminders.append(ReminderViewModel(title:"Hold hands", type: .Touch))
+//        reminders.append(ReminderViewModel(title:"Talk about your favorite date", type: .Time))
+    }
+    
+    func load() {
+        let url = URL(string: "https://peterfoxflick.com/RomanticReminders.json")!
+    
+        URLSession.shared.dataTask(with: url) {(data,response,error) in
+            do {
+                if let d = data {
+                    let decodedLists = try JSONDecoder().decode([ReminderViewModel].self, from: d)
+                    DispatchQueue.main.async {
+                        self.reminders = decodedLists
+                    }
+                }else {
+                    print("No Data")
+                }
+            } catch {
+                print ("Error: ", error)
+            }
+            
+        }.resume()
     }
     
     func addAll(){

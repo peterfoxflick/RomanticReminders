@@ -105,8 +105,8 @@
 		917AA2D42411274400ACEA11 /* View-Model */ = {
 			isa = PBXGroup;
 			children = (
-				917AA2D5241127BA00ACEA11 /* ReminderViewModel.swift */,
 				917AA2D72412BDFF00ACEA11 /* RemindersListViewModel.swift */,
+				917AA2D5241127BA00ACEA11 /* ReminderViewModel.swift */,
 			);
 			path = "View-Model";
 			sourceTree = "<group>";
