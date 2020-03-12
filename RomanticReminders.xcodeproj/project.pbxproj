@@ -17,6 +17,7 @@
 		917AA2D6241127BA00ACEA11 /* ReminderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917AA2D5241127BA00ACEA11 /* ReminderViewModel.swift */; };
 		917AA2D82412BDFF00ACEA11 /* RemindersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917AA2D72412BDFF00ACEA11 /* RemindersListViewModel.swift */; };
 		917AA2DA2412C01F00ACEA11 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917AA2D92412C01F00ACEA11 /* enums.swift */; };
+		91A0F58E241A57AE002D3B78 /* setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A0F58D241A57AE002D3B78 /* setting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		917AA2D5241127BA00ACEA11 /* ReminderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewModel.swift; sourceTree = "<group>"; };
 		917AA2D72412BDFF00ACEA11 /* RemindersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListViewModel.swift; sourceTree = "<group>"; };
 		917AA2D92412C01F00ACEA11 /* enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enums.swift; sourceTree = "<group>"; };
+		91A0F58D241A57AE002D3B78 /* setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			children = (
 				917AA2D72412BDFF00ACEA11 /* RemindersListViewModel.swift */,
 				917AA2D5241127BA00ACEA11 /* ReminderViewModel.swift */,
+				91A0F58D241A57AE002D3B78 /* setting.swift */,
 			);
 			path = "View-Model";
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				917AA2D82412BDFF00ACEA11 /* RemindersListViewModel.swift in Sources */,
 				917AA2BC241126F900ACEA11 /* AppDelegate.swift in Sources */,
 				917AA2C3241126F900ACEA11 /* ContentView.swift in Sources */,
+				91A0F58E241A57AE002D3B78 /* setting.swift in Sources */,
 				917AA2BE241126F900ACEA11 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

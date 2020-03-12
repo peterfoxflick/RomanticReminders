@@ -13,12 +13,9 @@ class RemindersListViewModel: ObservableObject, Identifiable {
 
     init(){
         load()
-//        reminders.append(ReminderViewModel(title:"Get Flowers", type: .Gift))
-//        reminders.append(ReminderViewModel(title:"Write a note", type: .Words))
-//        reminders.append(ReminderViewModel(title:"Hold hands", type: .Touch))
-//        reminders.append(ReminderViewModel(title:"Talk about your favorite date", type: .Time))
     }
     
+    //Thanks https://medium.com/@rbreve/displaying-a-list-with-swiftui-from-a-remote-json-file-6b4e4280a076
     func load() {
         let url = URL(string: "https://peterfoxflick.com/RomanticReminders.json")!
     

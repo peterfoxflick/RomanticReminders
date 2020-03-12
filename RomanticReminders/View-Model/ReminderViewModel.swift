@@ -12,7 +12,7 @@ import EventKit
 
 class ReminderViewModel: ObservableObject, Identifiable, Decodable {
     var title: String
-    var note: String
+    var note: String?
     var type: LoveLang
     
     init(title: String, type:LoveLang, note:String = ""){
@@ -60,6 +60,12 @@ class ReminderViewModel: ObservableObject, Identifiable, Decodable {
         }
      }
 
+
+    enum CodingKeys: String, CodingKey {
+           case title = "title"
+           case note = "note"
+           case type = "type"
+        }
 
 
 }
