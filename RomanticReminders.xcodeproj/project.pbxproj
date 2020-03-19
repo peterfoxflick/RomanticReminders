@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		910E179C241FAA260098BBF5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910E179B241FAA260098BBF5 /* SettingsView.swift */; };
 		917AA2BC241126F900ACEA11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917AA2BB241126F900ACEA11 /* AppDelegate.swift */; };
 		917AA2BE241126F900ACEA11 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917AA2BD241126F900ACEA11 /* SceneDelegate.swift */; };
 		917AA2C1241126F900ACEA11 /* RomanticReminders.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 917AA2BF241126F900ACEA11 /* RomanticReminders.xcdatamodeld */; };
@@ -17,10 +18,12 @@
 		917AA2D6241127BA00ACEA11 /* ReminderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917AA2D5241127BA00ACEA11 /* ReminderViewModel.swift */; };
 		917AA2D82412BDFF00ACEA11 /* RemindersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917AA2D72412BDFF00ACEA11 /* RemindersListViewModel.swift */; };
 		917AA2DA2412C01F00ACEA11 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917AA2D92412C01F00ACEA11 /* enums.swift */; };
-		91A0F58E241A57AE002D3B78 /* setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A0F58D241A57AE002D3B78 /* setting.swift */; };
+		91A0F58E241A57AE002D3B78 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A0F58D241A57AE002D3B78 /* SettingViewModel.swift */; };
+		91D48A072423925E00CF4987 /* lovePref.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D48A062423925E00CF4987 /* lovePref.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		910E179B241FAA260098BBF5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		917AA2B8241126F900ACEA11 /* RomanticReminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RomanticReminders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		917AA2BB241126F900ACEA11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		917AA2BD241126F900ACEA11 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,7 +36,8 @@
 		917AA2D5241127BA00ACEA11 /* ReminderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewModel.swift; sourceTree = "<group>"; };
 		917AA2D72412BDFF00ACEA11 /* RemindersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListViewModel.swift; sourceTree = "<group>"; };
 		917AA2D92412C01F00ACEA11 /* enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enums.swift; sourceTree = "<group>"; };
-		91A0F58D241A57AE002D3B78 /* setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setting.swift; sourceTree = "<group>"; };
+		91A0F58D241A57AE002D3B78 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		91D48A062423925E00CF4987 /* lovePref.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lovePref.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 		917AA2D22411272300ACEA11 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				91D48A062423925E00CF4987 /* lovePref.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -100,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				917AA2C2241126F900ACEA11 /* ContentView.swift */,
+				910E179B241FAA260098BBF5 /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -109,7 +115,7 @@
 			children = (
 				917AA2D72412BDFF00ACEA11 /* RemindersListViewModel.swift */,
 				917AA2D5241127BA00ACEA11 /* ReminderViewModel.swift */,
-				91A0F58D241A57AE002D3B78 /* setting.swift */,
+				91A0F58D241A57AE002D3B78 /* SettingViewModel.swift */,
 			);
 			path = "View-Model";
 			sourceTree = "<group>";
@@ -188,10 +194,12 @@
 				917AA2DA2412C01F00ACEA11 /* enums.swift in Sources */,
 				917AA2D6241127BA00ACEA11 /* ReminderViewModel.swift in Sources */,
 				917AA2C1241126F900ACEA11 /* RomanticReminders.xcdatamodeld in Sources */,
+				910E179C241FAA260098BBF5 /* SettingsView.swift in Sources */,
 				917AA2D82412BDFF00ACEA11 /* RemindersListViewModel.swift in Sources */,
 				917AA2BC241126F900ACEA11 /* AppDelegate.swift in Sources */,
+				91D48A072423925E00CF4987 /* lovePref.swift in Sources */,
 				917AA2C3241126F900ACEA11 /* ContentView.swift in Sources */,
-				91A0F58E241A57AE002D3B78 /* setting.swift in Sources */,
+				91A0F58E241A57AE002D3B78 /* SettingViewModel.swift in Sources */,
 				917AA2BE241126F900ACEA11 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

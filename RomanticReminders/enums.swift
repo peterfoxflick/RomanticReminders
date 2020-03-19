@@ -23,4 +23,26 @@ enum LoveLang: Decodable, CaseIterable {
     }
     
     case Touch, Service, Words, Time, Gift
+    
+    
+    func getEmoji() -> String {
+        switch self {
+            case .Touch: return "🖐️"
+            case .Service: return "🔨"
+            case .Words: return "📜"
+            case .Time: return "🕰️"
+            case .Gift: return "🎁"
+        }
+     }
+    
+    func getText() -> String {
+        switch self {
+            case .Touch: return "Touch"
+            case .Service: return "Service"
+            case .Words: return "Words"
+            case .Time: return "Time"
+            case .Gift: return "Gifts"
+        }
+     }
+    
 }

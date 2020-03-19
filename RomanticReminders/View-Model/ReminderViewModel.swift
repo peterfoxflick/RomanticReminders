@@ -31,7 +31,7 @@ class ReminderViewModel: ObservableObject, Identifiable, Decodable {
             print(comp,e as Any)
             let r = EKReminder.init(eventStore: s)
             
-            r.title = self.getEmoji() + " " + self.title
+            r.title = self.type.getEmoji() + " " + self.title
             r.notes = self.note
             
             let d = NSDate.init().addingTimeInterval(offset)
@@ -48,18 +48,6 @@ class ReminderViewModel: ObservableObject, Identifiable, Decodable {
             }
         }
     }
-    
-    
-    func getEmoji() -> String {
-        switch self.type {
-            case .Touch: return "🖐️"
-            case .Service: return "🔨"
-            case .Words: return "📜"
-            case .Time: return "🕰️"
-            case .Gift: return "🎁"
-        }
-     }
-
 
     enum CodingKeys: String, CodingKey {
            case title = "title"
