@@ -11,6 +11,9 @@ import SwiftUI
 
 struct SettingsView: View {
    @State var lovePrefSettings = LovePrefSettingsViewModel()
+   @State var showingReminderView = false
+   @State var time = Date()
+
     
     var body: some View {
         VStack {
@@ -20,7 +23,31 @@ struct SettingsView: View {
                 SettingView(s: self.$lovePrefSettings.lovePrefs[$0]).padding(.horizontal)
             }
             
-        }
+            
+            DatePicker(selection: self.$time, displayedComponents: .hourAndMinute){
+                Text("")
+            }
+            
+            
+            
+            Button(action: {
+                // What to perform
+                self.lovePrefSettings.save()
+                self.showingReminderView.toggle()
+                
+            }) {
+                // How the button looks like
+                Text("Save")
+                    .foregroundColor(Color.white)
+                    .padding()
+                    .background(Color.green)
+                    .cornerRadius(50)
+            }.sheet(isPresented: self.$showingReminderView){
+                ContentView(showingReminderView: self.$showingReminderView)
+            }
+
+            
+        }.padding()
     }
 }
 

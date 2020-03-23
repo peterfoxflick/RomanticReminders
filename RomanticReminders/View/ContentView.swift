@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var rlist = RemindersListViewModel()
+    @Binding var showingReminderView: Bool
+    
     
     var body: some View {
         VStack {
@@ -27,6 +29,7 @@ struct ContentView: View {
             Button(action: {
                 // What to perform
                 self.rlist.addAll()
+                self.showingReminderView.toggle()
                 
             }) {
                 // How the button looks like
@@ -52,8 +55,9 @@ struct ContentView: View {
 
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    let showMe = true
+//    static var previews: some View {
+//        ContentView(show: showMe)
+//    }
+//}

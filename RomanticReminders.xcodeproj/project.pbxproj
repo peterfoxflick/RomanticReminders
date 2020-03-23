@@ -19,7 +19,7 @@
 		917AA2D82412BDFF00ACEA11 /* RemindersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917AA2D72412BDFF00ACEA11 /* RemindersListViewModel.swift */; };
 		917AA2DA2412C01F00ACEA11 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917AA2D92412C01F00ACEA11 /* enums.swift */; };
 		91A0F58E241A57AE002D3B78 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A0F58D241A57AE002D3B78 /* SettingViewModel.swift */; };
-		91D48A072423925E00CF4987 /* lovePref.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D48A062423925E00CF4987 /* lovePref.swift */; };
+		91D48A072423925E00CF4987 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D48A062423925E00CF4987 /* SettingsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,7 @@
 		917AA2D72412BDFF00ACEA11 /* RemindersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListViewModel.swift; sourceTree = "<group>"; };
 		917AA2D92412C01F00ACEA11 /* enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enums.swift; sourceTree = "<group>"; };
 		91A0F58D241A57AE002D3B78 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
-		91D48A062423925E00CF4987 /* lovePref.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lovePref.swift; sourceTree = "<group>"; };
+		91D48A062423925E00CF4987 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +96,7 @@
 		917AA2D22411272300ACEA11 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				91D48A062423925E00CF4987 /* lovePref.swift */,
+				91D48A062423925E00CF4987 /* SettingsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,7 +197,7 @@
 				910E179C241FAA260098BBF5 /* SettingsView.swift in Sources */,
 				917AA2D82412BDFF00ACEA11 /* RemindersListViewModel.swift in Sources */,
 				917AA2BC241126F900ACEA11 /* AppDelegate.swift in Sources */,
-				91D48A072423925E00CF4987 /* lovePref.swift in Sources */,
+				91D48A072423925E00CF4987 /* SettingsModel.swift in Sources */,
 				917AA2C3241126F900ACEA11 /* ContentView.swift in Sources */,
 				91A0F58E241A57AE002D3B78 /* SettingViewModel.swift in Sources */,
 				917AA2BE241126F900ACEA11 /* SceneDelegate.swift in Sources */,

@@ -9,14 +9,31 @@
 import Foundation
 
 class LovePrefSettingsViewModel: ObservableObject {
-    @Published var lovePrefs: [LovePrefSettingViewModel]
+    @Published var lovePrefs = [LovePrefSettingViewModel]()
+    @Published var time = Date()
     
     init(){
-        self.lovePrefs = [LovePrefSettingViewModel]()
-        LoveLang.allCases.forEach {
-            let l = LovePrefSettingViewModel(loveLang: $0, percentage: 50.00)
-            self.lovePrefs.append(l)
+        fetch()
+    }
+    
+    func fetch() {
+        lovePrefs.removeAll()
+        settings.fetch()
+        
+        let lovePrefsCore = settings.lovePrefs
+        lovePrefsCore.forEach{ l in
+            let lp = LovePrefSettingViewModel(lovePref: l)
+            self.lovePrefs.append(lp)
         }
+    }
+    
+    func save() {
+        var coreLovePrefs = [LovePref]()
+        self.lovePrefs.forEach{ l in
+            let lovePref = LovePref(loveLang: l.loveLang, percentage: l.percentage)
+            coreLovePrefs.append(lovePref)
+        }
+        settings.setLovePrefs(lovePrefs: coreLovePrefs)
     }
 }
 
@@ -31,5 +48,12 @@ class LovePrefSettingViewModel: ObservableObject, Identifiable {
         self.percentage = percentage
         self.id = loveLang
     }
+    
+    init(lovePref: LovePref){
+        self.loveLang = lovePref.loveLang
+        self.percentage = lovePref.percentage
+        self.id = lovePref.loveLang
+    }
+    
 }
 

@@ -37,12 +37,15 @@ class RemindersListViewModel: ObservableObject, Identifiable {
     }
     
     func addAll(){
-        let offset = 0.0
-        var day = 0.0
+       // let offset = 0.0
+      //  var day = 0.0
+        print("Call Addall()")
         
-        self.reminders.forEach{ r in
-            r.addR(offset: offset + day)
-            day += 86400
-        }
+        self.reminders[0].addR()
+        
+//        self.reminders.forEach{ r in
+//            r.addR(offset: offset + day)
+//            day += 86400
+//        }
     }
 }

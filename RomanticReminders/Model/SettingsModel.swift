@@ -11,6 +11,7 @@ let settings = SettingsDM()
 
 class SettingsDM { // Data manager
     var lovePrefs = [LovePref]()
+    var time = Date()
 
     init(){
         fetch()
@@ -19,21 +20,28 @@ class SettingsDM { // Data manager
     func save(){
         let defaults = UserDefaults.standard
         
-        lovePrefs.forEach { l in
+        //Save love language percentages
+        self.lovePrefs.forEach { l in
             defaults.set(l.percentage, forKey: l.loveLang.getText())
         }
+        
+        //Save time
+        defaults.set(time, forKey: "time")
     }
     
     func fetch(){
         self.lovePrefs.removeAll()
 
         let defaults = UserDefaults.standard
-
-        LoveLang.allCases.forEach{
-            let doubleLovePref = defaults.object(forKey: $0.getText()) as? Double ?? 50.00
-            let lovePref = LovePref(loveLang: $0, percentage: doubleLovePref)
+        
+        for loveLang in LoveLang.allCases {            
+            let doubleLovePref = defaults.object(forKey: loveLang.getText()) as? Double ?? 50.00
+            let lovePref = LovePref(loveLang: loveLang, percentage: doubleLovePref)
             self.lovePrefs.append(lovePref)
+
         }
+        
+        self.time = defaults.object(forKey: "time") as? Date ?? Date()
     }
     
     func setLovePrefs(lovePrefs: [LovePref]){
