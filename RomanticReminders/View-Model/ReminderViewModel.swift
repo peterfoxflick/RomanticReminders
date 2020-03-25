@@ -50,24 +50,31 @@ class ReminderViewModel: ObservableObject, Identifiable, Decodable {
         content.badge = 1
         
         
-        // Configure the recurring date.
+        // Configure the recurring date.  Thanks: https://stackoverflow.com/questions/5067785/how-do-i-add-1-day-to-an-nsdate
         var dateComponents = DateComponents()
-        dateComponents.calendar = Calendar.current
+        let theCalendar     = Calendar.current
+        
+        dateComponents.day = 1     //Number of days in future
+        
+        let reminderDay = theCalendar.date(byAdding: dateComponents, to: Date())
 
-        dateComponents.weekday = 2  // Monday
-        dateComponents.hour = 7    // 14:00 hours
+        dateComponents.hour = 7
         dateComponents.minute = 50
+        
+        let triggerDate = Calendar.current.dateComponents([.day,.hour,.minute], from: Date())
+
+
            
         // Create the trigger as a repeating event.
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
         //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         
                 
-        let uuidString = UUID().uuidString
-        let request = UNNotificationRequest(identifier: uuidString,
+        let reminderID = UUID()
+        let request = UNNotificationRequest(identifier: reminderID.uuidString,
                     content: content, trigger: trigger)
 
-        // Schedule the request with the system.
+        // Schedule the request with the system
         notificationCenter.add(request) { (error) in
            if error != nil {
             print("Error \(error!.localizedDescription)")
@@ -75,8 +82,8 @@ class ReminderViewModel: ObservableObject, Identifiable, Decodable {
            }
         }
         
-        print("UUID \(uuidString)")
-
+        //Save the id
+        settings.reminders.append(reminderID)
     }
 
     enum CodingKeys: String, CodingKey {

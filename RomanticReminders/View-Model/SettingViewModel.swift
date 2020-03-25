@@ -11,6 +11,7 @@ import Foundation
 class LovePrefSettingsViewModel: ObservableObject {
     @Published var lovePrefs = [LovePrefSettingViewModel]()
     @Published var time = Date()
+    @Published var days = Int()
     
     init(){
         fetch()
@@ -25,6 +26,8 @@ class LovePrefSettingsViewModel: ObservableObject {
             let lp = LovePrefSettingViewModel(lovePref: l)
             self.lovePrefs.append(lp)
         }
+        
+        self.days = settings.days
     }
     
     func save() {
@@ -34,6 +37,7 @@ class LovePrefSettingsViewModel: ObservableObject {
             coreLovePrefs.append(lovePref)
         }
         settings.setLovePrefs(lovePrefs: coreLovePrefs)
+        settings.days = self.days
     }
 }
 

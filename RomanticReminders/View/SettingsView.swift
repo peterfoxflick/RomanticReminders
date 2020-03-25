@@ -10,26 +10,31 @@ import SwiftUI
 
 
 struct SettingsView: View {
-   @State var lovePrefSettings = LovePrefSettingsViewModel()
+   @ObservedObject var lovePrefSettings = LovePrefSettingsViewModel()
    @State var showingReminderView = false
-   @State var time = Date()
 
-    
+    @State var quantity: Int = 0
+
     var body: some View {
         VStack {
             Text("Settings").font(.largeTitle).padding(.top)
             
+            //Love Lang Percentages
             ForEach(0 ..< self.lovePrefSettings.lovePrefs.count) {
                 SettingView(s: self.$lovePrefSettings.lovePrefs[$0]).padding(.horizontal)
             }
             
+            //Number of days
+            Stepper("Number of days: \(self.lovePrefSettings.days)", value: self.$lovePrefSettings.days, in: 1...14)
+
             
-            DatePicker(selection: self.$time, displayedComponents: .hourAndMinute){
+            // Time of day for reminder
+            DatePicker(selection: self.$lovePrefSettings.time, displayedComponents: .hourAndMinute){
                 Text("")
             }
             
             
-            
+            //Save button
             Button(action: {
                 // What to perform
                 self.lovePrefSettings.save()

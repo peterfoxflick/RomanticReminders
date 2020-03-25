@@ -12,6 +12,8 @@ let settings = SettingsDM()
 class SettingsDM { // Data manager
     var lovePrefs = [LovePref]()
     var time = Date()
+    var reminders = [UUID]()
+    var days = Int()
 
     init(){
         fetch()
@@ -27,6 +29,12 @@ class SettingsDM { // Data manager
         
         //Save time
         defaults.set(time, forKey: "time")
+        
+        //Save reminder ids
+        defaults.set(reminders, forKey: "reminderIDs")
+        
+        //save number of days pref
+        defaults.set(days, forKey: "numberOfDays")
     }
     
     func fetch(){
@@ -42,6 +50,10 @@ class SettingsDM { // Data manager
         }
         
         self.time = defaults.object(forKey: "time") as? Date ?? Date()
+        
+        self.reminders = defaults.object(forKey: "reminderIDs") as? [UUID] ?? [UUID]()
+        
+        self.days = defaults.object(forKey: "numberOfDays") as? Int ?? 14
     }
     
     func setLovePrefs(lovePrefs: [LovePref]){

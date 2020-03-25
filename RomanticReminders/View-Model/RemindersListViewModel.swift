@@ -24,7 +24,7 @@ class RemindersListViewModel: ObservableObject, Identifiable {
                 if let d = data {
                     let decodedLists = try JSONDecoder().decode([ReminderViewModel].self, from: d)
                     DispatchQueue.main.async {
-                        self.reminders = decodedLists
+                        self.sort(allItems: decodedLists)
                     }
                 }else {
                     print("No Data")
@@ -34,6 +34,30 @@ class RemindersListViewModel: ObservableObject, Identifiable {
             }
             
         }.resume()
+    }
+    
+    func sort(allItems: [ReminderViewModel]){
+        let days = settings.days
+        
+        var total = 0.0
+        //First calc total
+        for l in settings.lovePrefs {
+            total += l.percentage
+        }
+        
+        //Now sort out based on total
+        for l in settings.lovePrefs {
+            let portion = Int(l.percentage / total * Double(days))
+            //get portion number of items from array
+            
+            var temp = allItems.filter { $0.type == l.loveLang }
+            
+            while(temp.count < portion) {
+                temp.append(contentsOf: temp)
+            }
+            
+            self.reminders.append(contentsOf: temp.shuffled()[0..<portion])
+        }
     }
     
     func addAll(){
