@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import EventKit
+
 
 class RemindersListViewModel: ObservableObject, Identifiable {
     @Published var reminders = [ReminderViewModel]()
@@ -61,15 +63,34 @@ class RemindersListViewModel: ObservableObject, Identifiable {
     }
     
     func addAll(){
-       // let offset = 0.0
-      //  var day = 0.0
-        print("Call Addall()")
+        let eventStore = EKEventStore()
+        var cat = eventStore.defaultCalendarForNewReminders()
+
+        do {
+            cat = try self.reminderCategory()
+        } catch {
+          print("No clue but it didnt work...")
+        }
         
-        self.reminders[0].addR()
         
-//        self.reminders.forEach{ r in
-//            r.addR(offset: offset + day)
-//            day += 86400
-//        }
+        var day = 0
+        self.reminders.forEach{ r in
+            r.addR(offset: day, cal: cat!)
+            day += 1
+        }
     }
-}
+    
+    
+    //Thanks https://stackoverflow.com/questions/56727160/create-a-reminder-list-which-can-hold-your-reminders-in-the-reminders-app-that-y
+    func reminderCategory() throws -> EKCalendar {
+        let eventStore = EKEventStore()
+        let calendars = eventStore.calendars(for: .reminder)
+        let bundleName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
+        if let bundleCalendar = calendars.first(where: {$0.title == bundleName}) { return bundleCalendar }
+
+        let calendar = EKCalendar(for: .reminder, eventStore: eventStore)
+        calendar.title = bundleName
+        calendar.source = eventStore.defaultCalendarForNewReminders()?.source
+        try eventStore.saveCalendar(calendar, commit: true)
+        return calendar
+    }}

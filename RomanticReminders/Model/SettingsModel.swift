@@ -31,7 +31,7 @@ class SettingsDM { // Data manager
         defaults.set(time, forKey: "time")
         
         //Save reminder ids
-        defaults.set(reminders, forKey: "reminderIDs")
+       // defaults.set(reminders, forKey: "reminderIDs")
         
         //save number of days pref
         defaults.set(days, forKey: "numberOfDays")
@@ -61,6 +61,16 @@ class SettingsDM { // Data manager
         save()
     }
     
+    
+    func getHour() -> Int{
+        return Calendar.current.component(.hour, from: self.time)
+    }
+    
+    func getMinute() -> Int{
+        print(Calendar.current.component(.minute, from: self.time))
+
+        return Calendar.current.component(.minute, from: self.time)
+    }
 }
 
 class LovePref {

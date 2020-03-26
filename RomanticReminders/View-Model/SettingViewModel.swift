@@ -26,7 +26,7 @@ class LovePrefSettingsViewModel: ObservableObject {
             let lp = LovePrefSettingViewModel(lovePref: l)
             self.lovePrefs.append(lp)
         }
-        
+        self.time = settings.time
         self.days = settings.days
     }
     
@@ -37,6 +37,7 @@ class LovePrefSettingsViewModel: ObservableObject {
             coreLovePrefs.append(lovePref)
         }
         settings.setLovePrefs(lovePrefs: coreLovePrefs)
+        settings.time = self.time
         settings.days = self.days
     }
 }
