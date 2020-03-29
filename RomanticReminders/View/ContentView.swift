@@ -20,7 +20,7 @@ struct ContentView: View {
             List{
                 ForEach(self.rlist.reminders){ r in
                     HStack{
-                        self.loveTypeImg(type: r.type)
+                        r.type.getImage()
                         Text(r.title)
                     }
                 }
@@ -33,7 +33,7 @@ struct ContentView: View {
                 
             }) {
                 // How the button looks like
-                Text("Add reminder")
+                Text("Add reminders")
                     .foregroundColor(Color.white)
                     .padding()
                     .background(Color.blue)
@@ -42,17 +42,6 @@ struct ContentView: View {
               
         }
     }
-    
-    func loveTypeImg(type: LoveLang) -> Image {
-       switch type {
-           case .Touch: return Image(systemName: "hand.raised")
-           case .Service: return Image(systemName: "hammer")
-           case .Words: return Image(systemName: "message")
-           case .Time: return Image(systemName: "clock")
-           case .Gift: return Image(systemName: "gift")
-           }
-        }
-
 }
 
 //struct ContentView_Previews: PreviewProvider {

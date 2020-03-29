@@ -26,6 +26,7 @@ class LovePrefSettingsViewModel: ObservableObject {
             let lp = LovePrefSettingViewModel(lovePref: l)
             self.lovePrefs.append(lp)
         }
+        self.lovePrefs.sort(by: { $0.loveLang.getText() > $1.loveLang.getText() })
         self.time = settings.time
         self.days = settings.days
     }

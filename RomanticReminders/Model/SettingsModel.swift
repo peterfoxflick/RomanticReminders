@@ -33,7 +33,6 @@ class SettingsDM { // Data manager
                 
         //save number of days pref
         defaults.set(days, forKey: "numberOfDays")
-        print("Days \(days)")
     }
     
     func fetch(){
@@ -49,7 +48,6 @@ class SettingsDM { // Data manager
         }
         
         self.time = defaults.object(forKey: "time") as? Date ?? Date()
-                
         self.days = defaults.object(forKey: "numberOfDays") as? Int ?? 14
     }
     

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum LoveLang: Decodable, CaseIterable {
     init(from decoder: Decoder) throws {
@@ -45,4 +46,14 @@ enum LoveLang: Decodable, CaseIterable {
         }
      }
     
+    func getImage() -> Image {
+       switch self {
+           case .Touch: return Image(systemName: "hand.raised")
+           case .Service: return Image(systemName: "hammer")
+           case .Words: return Image(systemName: "message")
+           case .Time: return Image(systemName: "clock")
+           case .Gift: return Image(systemName: "gift")
+           }
+        }
+
 }

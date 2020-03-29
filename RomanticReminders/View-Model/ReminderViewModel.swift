@@ -34,7 +34,7 @@ class ReminderViewModel: ObservableObject, Identifiable, Decodable {
            let reminder:EKReminder = EKReminder(eventStore: eventStore)
             reminder.title = self.type.getEmoji() + " " + self.title
 
-           reminder.notes = "...this is a note"
+            reminder.notes = self.note ?? ""
 
             var dateComponents = DateComponents()
             let theCalendar     = Calendar.current

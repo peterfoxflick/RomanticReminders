@@ -17,7 +17,7 @@ struct SettingsView: View {
 
     var body: some View {
         VStack {
-            Text("Settings").font(.largeTitle).padding(.top)
+            Text("Preferences").font(.largeTitle).padding(.top)
             
             //Love Lang Percentages
             ForEach(0 ..< self.lovePrefSettings.lovePrefs.count) {
@@ -25,7 +25,7 @@ struct SettingsView: View {
             }
             
             //Number of days
-            Stepper("Number of days: \(self.lovePrefSettings.days)", value: self.$lovePrefSettings.days, in: 1...14)
+            Stepper("Number of days: \(self.lovePrefSettings.days)", value: self.$lovePrefSettings.days, in: 1...31)
 
             
             // Time of day for reminder
@@ -42,7 +42,7 @@ struct SettingsView: View {
                 
             }) {
                 // How the button looks like
-                Text("Save")
+                Text("Generate")
                     .foregroundColor(Color.white)
                     .padding()
                     .background(Color.green)
@@ -60,8 +60,8 @@ struct SettingView:View {
     @Binding var s: LovePrefSettingViewModel
     
     var body: some View {
-        HStack{
-            Text(s.loveLang.getEmoji())
+        HStack{            
+            s.loveLang.getImage()
             
             Slider(value: self.$s.percentage, in: 0...100, step: 1)
         }

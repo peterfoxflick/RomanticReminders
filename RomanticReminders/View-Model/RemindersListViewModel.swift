@@ -47,6 +47,9 @@ class RemindersListViewModel: ObservableObject, Identifiable {
             total += l.percentage
         }
         
+        var extras = [ReminderViewModel]()
+        var extraPortion = 0
+        
         //Now sort out based on total
         for l in settings.lovePrefs {
             let portion = Int(l.percentage / total * Double(days))
@@ -54,13 +57,25 @@ class RemindersListViewModel: ObservableObject, Identifiable {
             
             var temp = allItems.filter { $0.type == l.loveLang }
             
+            //incase there are more days than items
             while(temp.count < portion) {
                 temp.append(contentsOf: temp)
             }
             
             self.reminders.append(contentsOf: temp.shuffled()[0..<portion])
+                        
+            //Check for extras for the end
+            if(extraPortion < portion){
+                extras = temp
+                extraPortion = portion
+            }
         }
-    }
+        
+        //Account for rounding error
+        let diff = days - self.reminders.count
+        self.reminders.append(contentsOf: extras.shuffled()[0..<diff])
+        self.reminders.sort( by: { $0.type.getText() > $1.type.getText() })
+            }
     
     func addAll(){
         let eventStore = settings.eventStore
@@ -72,9 +87,9 @@ class RemindersListViewModel: ObservableObject, Identifiable {
           print("No clue but it didnt work...")
         }
         
-        
+        let suffled = self.reminders.shuffled()
         var day = 0
-        self.reminders.forEach{ r in
+        suffled.forEach{ r in
             r.addR(offset: day, cal: cat)
             day += 1
         }
