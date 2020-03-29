@@ -36,9 +36,11 @@ class LovePrefSettingsViewModel: ObservableObject {
             let lovePref = LovePref(loveLang: l.loveLang, percentage: l.percentage)
             coreLovePrefs.append(lovePref)
         }
-        settings.setLovePrefs(lovePrefs: coreLovePrefs)
+        
+        settings.lovePrefs = coreLovePrefs
         settings.time = self.time
         settings.days = self.days
+        settings.save()
     }
 }
 

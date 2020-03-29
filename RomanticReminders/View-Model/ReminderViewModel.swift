@@ -23,9 +23,8 @@ class ReminderViewModel: ObservableObject, Identifiable, Decodable {
     }
     
     
-    func addR(offset: Int, cal: EKCalendar){
-        let eventStore = EKEventStore()
-        
+    func addR(offset: Int, cal: EKCalendar?){
+        let eventStore = settings.eventStore
         eventStore.requestAccess(to: EKEntityType.reminder, completion: {
          granted, error in
          if (granted) && (error == nil) {
@@ -57,7 +56,11 @@ class ReminderViewModel: ObservableObject, Identifiable, Decodable {
             let alarm = EKAlarm.init(absoluteDate: reminderDate)
            reminder.addAlarm(alarm)
 
-           reminder.calendar = cal
+            if(cal != nil ) {
+                reminder.calendar = cal
+            } else {
+                reminder.calendar = eventStore.defaultCalendarForNewReminders()
+            }
 
            do {
              try eventStore.save(reminder, commit: true)
@@ -65,7 +68,6 @@ class ReminderViewModel: ObservableObject, Identifiable, Decodable {
              print("Cannot save")
              return
            }
-           print("Reminder saved")
          }
         })
     }
