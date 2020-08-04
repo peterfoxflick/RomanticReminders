@@ -9,7 +9,8 @@ Learning how to send notifications in iOS and create reminders.
 ## Video
 
 This project is documented here:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dzaCMaXOOEM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[![Watch the video](https://raw.githubusercontent.com/peterfoxflick/RomanticReminders/master/Youtube%20Thumbnails.png)](https://www.youtube.com/watch?v=dzaCMaXOOEM)
 
 ## Notifications
 
